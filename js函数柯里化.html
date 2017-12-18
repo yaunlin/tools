@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	
+	<script>
+		//柯里化的plus函数
+		function plus(a){
+			return function(b){
+				return a+b;
+			}
+		}
+	    // ES5
+         function curry(fn) {
+             function _c(restNum, argsList) {
+               return restNum === 0 ?
+                 fn.apply(null, argsList) :
+                 function(x) {
+            return _c(restNum - 1, argsList.concat(x));
+            };
+        }
+            return _c(fn.length, []);
+    }
+	</script>
+	</body>
+</html>
